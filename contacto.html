@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FERCON | Contacto</title>
+  <meta name="description" content="Contactá a FERCON por formulario, WhatsApp o redes sociales." />
+  <link rel="stylesheet" href="assets/css/contacto.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="index.html" aria-label="Ir al inicio">
+            <img class="brand__logo" src="assets/img/logo.png" alt="FERCON" />
+            <span class="brand__name">FERCON</span>
+        </a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        ☰ <span class="sr-only">Abrir menú</span>
+      </button>
+
+      <div class="nav__menu" id="navMenu">
+        <a class="nav__link" href="index.html">Inicio</a>
+        <a class="nav__link" href="catalogo.html">Catálogo</a>
+        <a class="nav__link" href="nosotros.html">Sobre nosotros</a>
+        <a class="nav__link is-active" href="contacto.html">Contacto</a>
+        <a class="btn btn--primary nav__cta" id="whatsHeader" href="#" rel="noopener">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contacto</h1>
+        <p>Contanos qué necesitás y te respondemos. También podés escribirnos directo por WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-two">
+        <!-- FORM -->
+        <section class="card">
+          <h2>Formulario</h2>
+          <p class="muted">Este formulario abre tu email con el mensaje armado (sin backend).</p>
+
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+              <small class="error" data-error-for="name"></small>
+            </div>
+
+            <div class="field">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input id="phone" name="phone" type="tel" placeholder="Ej: 11 1234 5678" required />
+              <small class="error" data-error-for="phone"></small>
+            </div>
+
+            <div class="field">
+              <label for="service">Servicio</label>
+              <select id="service" name="service" required>
+                <option value="">Elegí una opción</option>
+                <option value="Construcción">Construcción</option>
+                <option value="Herrería">Herrería</option>
+                <option value="Carpintería">Carpintería</option>
+                <option value="Instalación eléctrica">Instalación eléctrica</option>
+                <option value="Plomería">Plomería</option>
+                <option value="Proyecto integral (llave en mano)">Proyecto integral (llave en mano)</option>
+              </select>
+              <small class="error" data-error-for="service"></small>
+            </div>
+
+            <div class="field">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="6" placeholder="Contanos ubicación, idea, tiempos, metros cuadrados, etc." required></textarea>
+              <small class="error" data-error-for="message"></small>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit">Enviar</button>
+              <a class="btn btn--ghost" id="waFromForm" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            </div>
+
+            <p class="muted small">Tip: mientras más datos (medidas, zona, plazo), más rápido te cotizan.</p>
+          </form>
+        </section>
+
+        <!-- CONTACTO DIRECTO -->
+        <aside class="card">
+          <h2>Contacto directo</h2>
+
+          <div class="contact-box">
+            <h3>WhatsApp</h3>
+            <p>Respuesta rápida para cotizaciones.</p>
+            <a class="btn btn--primary" id="whatsAside" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          </div>
+
+          <div class="contact-box">
+            <h3>Redes</h3>
+            <p>Seguinos para ver avances de obras y nuevos proyectos.</p>
+            <div class="social">
+              <a class="chip" id="igLink" href="#" target="_blank" rel="noopener">Instagram</a>
+              <a class="chip" id="fbLink" href="#" target="_blank" rel="noopener">Facebook</a>
+              <a class="chip" id="ttLink" href="#" target="_blank" rel="noopener">TikTok</a>
+            </div>
+          </div>
+
+          <div class="contact-box">
+            <h3>Email</h3>
+            <p>Para adjuntar referencias y documentos.</p>
+            <a class="text-link" id="mailFooter" href="#">contacto</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__bottom">
+      <small>© <span id="year"></span> FERCON.</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/contacto.js"></script>
+</body>
+</html>

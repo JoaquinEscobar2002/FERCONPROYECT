@@ -1,0 +1,259 @@
+/* ===========================
+   FERCON - Inicio (index.css)
+   =========================== */
+
+/* --------- Reset básico --------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #111;
+  background: #fff;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* Accesibilidad: texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+:root{
+  --container: 1100px;
+  --pad: 20px;
+  --border: rgba(0,0,0,.12);
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+  --primary: #0b2a4a;
+  --accent: #f0b429;
+}
+
+/* --------- Layout helpers --------- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+.section { padding: 70px 0; }
+.section--alt { background: #f6f7f9; }
+.section__header { margin-bottom: 22px; }
+.section__header h2 { margin: 0 0 8px; font-size: 30px; }
+.section__header p { margin: 0; color: #444; }
+
+.grid { display: grid; gap: 16px; }
+.center { display: flex; justify-content: center; margin-top: 22px; }
+
+/* --------- Header / Nav --------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 12px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand__logo{
+  width: 42px;
+  height: 42px;
+  object-fit: contain; /* no deforma el logo */
+  border-radius: 10px; /* si no querés bordes redondeados, borrá esta línea */
+}
+
+.brand__name { font-weight: 800; letter-spacing: .5px; }
+
+.nav__toggle{
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  display: none; /* se muestra en mobile */
+}
+
+.nav__menu{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav__link{
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: #1b1b1b;
+}
+.nav__link:hover { background: #f2f2f2; }
+.nav__link.is-active { font-weight: 700; }
+
+.nav__cta { margin-left: 6px; }
+
+/* --------- Botones --------- */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn--primary{
+  background: var(--primary);
+  color: #fff;
+  border-color: transparent;
+}
+.btn--primary:hover{ filter: brightness(1.05); }
+.btn--ghost{
+  background: transparent;
+}
+.btn--ghost:hover{ background: rgba(255,255,255,.15); }
+
+/* --------- Hero --------- */
+.hero{
+  min-height: 78vh;
+  background:
+    linear-gradient(135deg, rgba(11,42,74,.86), rgba(11,42,74,.55)),
+    url("../img/hero.jpg") center / cover no-repeat;
+  color: #fff;
+  display: grid;
+  place-items: stretch;
+}
+.hero__overlay { display: grid; align-items: center; }
+.hero__content { padding: 70px var(--pad); }
+
+.pill{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+.hero h1{
+  margin: 0 0 12px;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+.highlight{ color: var(--accent); }
+.hero__lead{
+  max-width: 62ch;
+  margin: 0 0 18px;
+  color: rgba(255,255,255,.92);
+}
+.hero__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.hero__social { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.icon-link{
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+}
+.icon-link:hover { background: rgba(255,255,255,.16); }
+
+/* --------- Cards --------- */
+.cards { grid-template-columns: repeat(5, 1fr); }
+.card{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card h3 { margin: 0 0 6px; font-size: 18px; }
+.card p { margin: 0; color: #444; }
+.card__cta{
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* --------- Featured --------- */
+.featured { grid-template-columns: repeat(2, 1fr); }
+.featured__item{
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.featured__info{ padding: 14px; }
+.featured__info h3{ margin: 0 0 6px; }
+.featured__info p{ margin: 0 0 10px; color: #444; }
+.text-link{ font-weight: 800; color: var(--primary); }
+.text-link:hover{ text-decoration: underline; }
+
+/* --------- Footer --------- */
+.site-footer{
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+.footer__grid{
+  padding: 34px var(--pad);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 18px;
+}
+.footer__links li a{
+  display: inline-block;
+  padding: 6px 0;
+  color: #333;
+}
+.footer__links li a:hover{ text-decoration: underline; }
+
+.footer__bottom{
+  border-top: 1px solid var(--border);
+  padding: 14px var(--pad);
+  color: #444;
+}
+
+/* --------- Responsive --------- */
+@media (max-width: 980px){
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .featured { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .hero__content { padding: 52px var(--pad); }
+}
+
+@media (max-width: 720px){
+  .nav__toggle{ display: inline-flex; }
+  .nav__menu{
+    position: absolute;
+    top: 64px;
+    right: 20px;
+    left: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 12px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nav__menu.is-open{ display: flex; }
+  .nav__cta{ width: 100%; }
+}
